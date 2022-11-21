@@ -29,7 +29,14 @@ public class GameManager : MonoBehaviour
         float length = this.flag.transform.position.x - this.car.transform.position.x;
         this.distance.GetComponent<Text>().text = "距離目標還有: " + length.ToString("F2") + "m";
 
-        float ScoreNumber = 100 / length;
-        this.score.GetComponent<Text>().text = "分數" + ScoreNumber.ToString("F2");
+        if (length >= 0) 
+        {
+            float ScoreNumber = 100 / length;
+            this.score.GetComponent<Text>().text = "分數:" + ScoreNumber.ToString("F2");
+        }
+        else
+        {
+            this.score.GetComponent<Text>().text = "分數:" + "0";
+        }
     }
 }
