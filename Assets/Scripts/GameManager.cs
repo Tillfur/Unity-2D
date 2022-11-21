@@ -15,28 +15,26 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.car = GameObject.Find("car");
-        this.flag = GameObject.Find("flag");
-        this.distance = GameObject.Find("Distance");
-        this.distance = GameObject.Find("Distance");
-        this.score = GameObject.Find("Score");
-
+        car = GameObject.Find("car");
+        flag = GameObject.Find("flag");
+        distance = GameObject.Find("Distance");
+        score = GameObject.Find("Score");
     }
 
     // Update is called once per frame
     void Update()
     {
-        float length = this.flag.transform.position.x - this.car.transform.position.x;
-        this.distance.GetComponent<Text>().text = "距離目標還有: " + length.ToString("F2") + "m";
+        float length = flag.transform.position.x - car.transform.position.x;
+        distance.GetComponent<Text>().text = "距離目標還有: " + length.ToString("F2") + "m";
 
         if (length >= 0) 
         {
             float ScoreNumber = 100 / length;
-            this.score.GetComponent<Text>().text = "分數:" + ScoreNumber.ToString("F2");
+            score.GetComponent<Text>().text = "分數:" + ScoreNumber.ToString("F2");
         }
         else
         {
-            this.score.GetComponent<Text>().text = "分數:" + "0";
+            score.GetComponent<Text>().text = "分數:" + "0";
         }
     }
 }
